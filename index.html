@@ -1,0 +1,407 @@
+<!doctype html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="initial-scale=1,user-scalable=no,maximum-scale=1,width=device-width">
+        <meta name="mobile-web-app-capable" content="yes">
+        <meta name="apple-mobile-web-app-capable" content="yes">
+        <link rel="stylesheet" href="css/leaflet.css">
+        <link rel="stylesheet" href="css/qgis2web.css"><link rel="stylesheet" href="css/fontawesome-all.min.css">
+        <style>
+        #map {
+            width: 1102px;
+            height: 852px;
+        }
+        </style>
+        <title></title>
+    </head>
+    <body>
+        <div id="map">
+        </div>
+        <script src="js/qgis2web_expressions.js"></script>
+        <script src="js/leaflet.js"></script>
+        <script src="js/multi-style-layer.js"></script>
+        <script src="js/leaflet.rotatedMarker.js"></script>
+        <script src="js/leaflet.pattern.js"></script>
+        <script src="js/leaflet-hash.js"></script>
+        <script src="js/Autolinker.min.js"></script>
+        <script src="js/rbush.min.js"></script>
+        <script src="js/labelgun.min.js"></script>
+        <script src="js/labels.js"></script>
+        <script src="data/mf_0.js"></script>
+        <script src="data/lt_1.js"></script>
+        <script src="data/uc_2.js"></script>
+        <script src="data/QUADRA_3.js"></script>
+        <script src="data/eixo_4.js"></script>
+        <script>
+        var map = L.map('map', {
+            zoomControl:true, maxZoom:28, minZoom:1
+        }).fitBounds([[-15.998626415495682,-41.286949124513406],[-15.990723224275955,-41.276435110454216]]);
+        var hash = new L.Hash(map);
+        map.attributionControl.setPrefix('<a href="https://github.com/tomchadwin/qgis2web" target="_blank">qgis2web</a> &middot; <a href="https://leafletjs.com" title="A JS library for interactive maps">Leaflet</a> &middot; <a href="https://qgis.org">QGIS</a>');
+        var autolinker = new Autolinker({truncate: {length: 30, location: 'smart'}});
+        var bounds_group = new L.featureGroup([]);
+        function setBounds() {
+        }
+        function pop_mf_0(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SHAPE_Leng'] !== null ? autolinker.link(feature.properties['SHAPE_Leng'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_mf_0_0() {
+            return {
+                pane: 'pane_mf_0',
+                opacity: 1,
+                color: 'rgba(0,0,0,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_mf_0');
+        map.getPane('pane_mf_0').style.zIndex = 400;
+        map.getPane('pane_mf_0').style['mix-blend-mode'] = 'normal';
+        var layer_mf_0 = new L.geoJson(json_mf_0, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_mf_0',
+            layerName: 'layer_mf_0',
+            pane: 'pane_mf_0',
+            onEachFeature: pop_mf_0,
+            style: style_mf_0_0,
+        });
+        bounds_group.addLayer(layer_mf_0);
+        map.addLayer(layer_mf_0);
+        function pop_lt_1(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DISTRITO'] !== null ? autolinker.link(feature.properties['DISTRITO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SETOR'] !== null ? autolinker.link(feature.properties['SETOR'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['QUADRA'] !== null ? autolinker.link(feature.properties['QUADRA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>LOTE</strong><br />' + (feature.properties['LOTE'] !== null ? autolinker.link(feature.properties['LOTE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['UNIDADE'] !== null ? autolinker.link(feature.properties['UNIDADE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>INSC_LOTE</strong><br />' + (feature.properties['INSC_LOTE'] !== null ? autolinker.link(feature.properties['INSC_LOTE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['INSC'] !== null ? autolinker.link(feature.properties['INSC'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DSQ'] !== null ? autolinker.link(feature.properties['DSQ'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SHAPE_Leng'] !== null ? autolinker.link(feature.properties['SHAPE_Leng'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SHAPE_Area'] !== null ? autolinker.link(feature.properties['SHAPE_Area'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_lt_1_0() {
+            return {
+                pane: 'pane_lt_1',
+                opacity: 1,
+                color: 'rgba(68,1,84,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 4.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_lt_1');
+        map.getPane('pane_lt_1').style.zIndex = 401;
+        map.getPane('pane_lt_1').style['mix-blend-mode'] = 'normal';
+        var layer_lt_1 = new L.geoJson(json_lt_1, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_lt_1',
+            layerName: 'layer_lt_1',
+            pane: 'pane_lt_1',
+            onEachFeature: pop_lt_1,
+            style: style_lt_1_0,
+        });
+        bounds_group.addLayer(layer_lt_1);
+        map.addLayer(layer_lt_1);
+        function pop_uc_2(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DISTRITO'] !== null ? autolinker.link(feature.properties['DISTRITO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SETOR'] !== null ? autolinker.link(feature.properties['SETOR'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['QUADRA'] !== null ? autolinker.link(feature.properties['QUADRA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['LOTE'] !== null ? autolinker.link(feature.properties['LOTE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['UNIDADE'] !== null ? autolinker.link(feature.properties['UNIDADE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['INSC_LOTE'] !== null ? autolinker.link(feature.properties['INSC_LOTE'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['INSC'] !== null ? autolinker.link(feature.properties['INSC'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DSQ'] !== null ? autolinker.link(feature.properties['DSQ'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SHAPE_Leng'] !== null ? autolinker.link(feature.properties['SHAPE_Leng'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SHAPE_Area'] !== null ? autolinker.link(feature.properties['SHAPE_Area'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        var pattern_uc_2_0 = new L.StripePattern({
+            weight: 0.09999999999999998,
+            spaceWeight: 2.0,
+            color: '#fb9a99',
+            opacity: 1.0,
+            spaceOpacity: 0,
+            angle: 225
+        });
+        pattern_uc_2_0.addTo(map);
+        function style_uc_2_0() {
+            return {
+                pane: 'pane_uc_2',
+                stroke: false,
+                fillOpacity: 1,
+                fillPattern: pattern_uc_2_0,
+                interactive: false,
+            }
+        }
+        function style_uc_2_1() {
+            return {
+                pane: 'pane_uc_2',
+                opacity: 1,
+                color: 'rgba(251,154,153,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 1.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_uc_2');
+        map.getPane('pane_uc_2').style.zIndex = 402;
+        map.getPane('pane_uc_2').style['mix-blend-mode'] = 'normal';
+        var layer_uc_2 = new L.geoJson.multiStyle(json_uc_2, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_uc_2',
+            layerName: 'layer_uc_2',
+            pane: 'pane_uc_2',
+            onEachFeature: pop_uc_2,
+            styles: [style_uc_2_0,style_uc_2_1,]
+        });
+        bounds_group.addLayer(layer_uc_2);
+        map.addLayer(layer_uc_2);
+        function pop_QUADRA_3(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DISTRITO'] !== null ? autolinker.link(feature.properties['DISTRITO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SETOR'] !== null ? autolinker.link(feature.properties['SETOR'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['QUADRA'] !== null ? autolinker.link(feature.properties['QUADRA'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['DSQ'] !== null ? autolinker.link(feature.properties['DSQ'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['COUNT_DSQ'] !== null ? autolinker.link(feature.properties['COUNT_DSQ'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SHAPE_Length'] !== null ? autolinker.link(feature.properties['SHAPE_Length'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SHAPE_Area'] !== null ? autolinker.link(feature.properties['SHAPE_Area'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_QUADRA_3_0() {
+            return {
+                pane: 'pane_QUADRA_3',
+                opacity: 1,
+                color: 'rgba(51,160,44,1.0)',
+                dashArray: '',
+                lineCap: 'square',
+                lineJoin: 'bevel',
+                weight: 2.0,
+                fillOpacity: 0,
+                interactive: false,
+            }
+        }
+        map.createPane('pane_QUADRA_3');
+        map.getPane('pane_QUADRA_3').style.zIndex = 403;
+        map.getPane('pane_QUADRA_3').style['mix-blend-mode'] = 'normal';
+        var layer_QUADRA_3 = new L.geoJson(json_QUADRA_3, {
+            attribution: '',
+            interactive: false,
+            dataVar: 'json_QUADRA_3',
+            layerName: 'layer_QUADRA_3',
+            pane: 'pane_QUADRA_3',
+            onEachFeature: pop_QUADRA_3,
+            style: style_QUADRA_3_0,
+        });
+        bounds_group.addLayer(layer_QUADRA_3);
+        map.addLayer(layer_QUADRA_3);
+        function pop_eixo_4(feature, layer) {
+            var popupContent = '<table>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['fid'] !== null ? autolinker.link(feature.properties['fid'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['OBJECTID'] !== null ? autolinker.link(feature.properties['OBJECTID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['ORIG_FID'] !== null ? autolinker.link(feature.properties['ORIG_FID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['InLine_FID'] !== null ? autolinker.link(feature.properties['InLine_FID'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['SimLnFlag'] !== null ? autolinker.link(feature.properties['SimLnFlag'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MaxSimpTol'] !== null ? autolinker.link(feature.properties['MaxSimpTol'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['MinSimpTol'] !== null ? autolinker.link(feature.properties['MinSimpTol'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['TIPO'] !== null ? autolinker.link(feature.properties['TIPO'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2"><strong>NOME</strong><br />' + (feature.properties['NOME'] !== null ? autolinker.link(feature.properties['NOME'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                    <tr>\
+                        <td colspan="2">' + (feature.properties['Shape_Leng'] !== null ? autolinker.link(feature.properties['Shape_Leng'].toLocaleString()) : '') + '</td>\
+                    </tr>\
+                </table>';
+            layer.bindPopup(popupContent, {maxHeight: 400});
+        }
+
+        function style_eixo_4_0() {
+            return {
+                pane: 'pane_eixo_4',
+                opacity: 1,
+                color: 'rgba(31,120,180,1.0)',
+                dashArray: '',
+                lineCap: 'round',
+                lineJoin: 'round',
+                weight: 3.0,
+                fillOpacity: 0,
+                interactive: true,
+            }
+        }
+        map.createPane('pane_eixo_4');
+        map.getPane('pane_eixo_4').style.zIndex = 404;
+        map.getPane('pane_eixo_4').style['mix-blend-mode'] = 'normal';
+        var layer_eixo_4 = new L.geoJson(json_eixo_4, {
+            attribution: '',
+            interactive: true,
+            dataVar: 'json_eixo_4',
+            layerName: 'layer_eixo_4',
+            pane: 'pane_eixo_4',
+            onEachFeature: pop_eixo_4,
+            style: style_eixo_4_0,
+        });
+        bounds_group.addLayer(layer_eixo_4);
+        map.addLayer(layer_eixo_4);
+        setBounds();
+        var i = 0;
+        layer_lt_1.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['LOTE'] !== null?String('<div style="color: #323232; font-size: 6pt; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['LOTE']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_lt_1'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        var i = 0;
+        layer_QUADRA_3.eachLayer(function(layer) {
+            var context = {
+                feature: layer.feature,
+                variables: {}
+            };
+            layer.bindTooltip((layer.feature.properties['QUADRA'] !== null?String('<div style="color: #ffffff; font-size: 10pt; font-weight: bold; font-family: \'Arial\', sans-serif;">' + layer.feature.properties['QUADRA']) + '</div>':''), {permanent: true, offset: [-0, -16], className: 'css_QUADRA_3'});
+            labels.push(layer);
+            totalMarkers += 1;
+              layer.added = true;
+              addLabel(layer, i);
+              i++;
+        });
+        resetLabels([layer_lt_1,layer_QUADRA_3]);
+        map.on("zoomend", function(){
+            resetLabels([layer_lt_1,layer_QUADRA_3]);
+        });
+        map.on("layeradd", function(){
+            resetLabels([layer_lt_1,layer_QUADRA_3]);
+        });
+        map.on("layerremove", function(){
+            resetLabels([layer_lt_1,layer_QUADRA_3]);
+        });
+        </script>
+    </body>
+</html>
